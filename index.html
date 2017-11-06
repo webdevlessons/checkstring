@@ -47,6 +47,9 @@
 		tr:nth-child(2n) {
 			background: #f9f9f9;
 		}
+		.comments {
+			margin-top: 40px;
+		}
 	</style>
 </head>
 <body>
@@ -67,7 +70,7 @@
 				<tbody id="result"></tbody>
 			</table>
 		</div>
-		<div id="disqus_thread"></div>
+		<div id="disqus_thread" class="comments"></div>
 	</div>
 	<script>
 		var kaptcha = document.getElementById('kaptcha'),
@@ -124,7 +127,7 @@
 	(d.head || d.body).appendChild(s);
 	})();
 	</script>
-	
+
                             
 </body>
 </html>
