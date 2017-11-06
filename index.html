@@ -3,131 +3,63 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Check Unicode</title>
-	<script
-		  src="https://code.jquery.com/jquery-3.2.1.min.js"
-		  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		  crossorigin="anonymous"></script>
-	<style>
-		body {
-			font-size: 100%;
-		}
-		.container {
-			width: 960px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		input, button {
-			display: block;
-			max-width: 100%;
-			font-size: 16px;
-			margin: 10px 0;
-			border-radius: 4px;
-		}
-		input {
-			padding: 5px 20px;
-			width: 300px;
-			border: 1px solid #eee;
-		}
-		button {
-			border: none;
-			padding: 5px 10px;
-			background: #448AFF;
-			color: #fff;
-			cursor: pointer;
-		}
-		table {
-			width: 100%;
-		}
-		thead {
-			background: #eee;
-		}
-		td {
-			padding: 10px;
-		}
-		tr:nth-child(2n) {
-			background: #f9f9f9;
-		}
-		.comments {
-			margin-top: 40px;
-		}
-	</style>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div class="container">
-		<input id="kaptcha" type="text" placeholder="Вставьте в это поле капчу">
-		<button id="btn">Проверить символы</button>
-		<p>Если вам встретился символ отсутствующий на клавиатуре, то вы можете через зажатый alt набрать Юникод номер(набирать нужно на num pud), который находится в 3 столбце.</p>
-		<div>
-			<table>
-				<thead>
-					<tr>
-						<td>Язык</td>
-						<td>Символ</td>
-						<td>Юникод</td>
-						<td>HEX</td>
-					</tr>
-				</thead>
-				<tbody id="result"></tbody>
-			</table>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-header">
+					<h1>Проверка смс-кодов <small>на "подставные" символы</small></h1>
+				</div>
+			</div>
 		</div>
-		<div id="disqus_thread" class="comments"></div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="input-group">
+					<input id="kaptcha" class="form-control" type="text" placeholder="Вставьте в это поле капчу">
+					<span class="input-group-btn">
+						<button id="btn" class="btn btn-default">Проверить</button>
+					</span>
+				</div>
+				<p class="lead">Если вам встретился символ отсутствующий на клавиатуре, то вы можете через зажатый <mark>alt</mark> набрать <mark>Юникод номер</mark>(набирать нужно на num pud), который находится в 3 столбце.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<td>Язык</td>
+								<td>Символ</td>
+								<td>Юникод</td>
+								<td>HEX</td>
+							</tr>
+						</thead>
+						<tbody id="result"></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div id="disqus_thread" class="comments"></div>
+			</div>
+		</div>
 	</div>
-	<script>
-		var kaptcha = document.getElementById('kaptcha'),
-			button = document.getElementById('btn'),
-			obj = {};
-
-		var table = $('#result');
-
-		button.addEventListener('click', function() {
-
-			table.html('');
-
-			var val = kaptcha.value;
-
-			
-
-			for (var i = 0; i < val.length; i++) {
-				var symbol = val[i],
-					code = symbol.charCodeAt(0),
-					hex = Number(code).toString(16),
-					lang  = getLang(code);
-
-					table.append('<tr><td>'+ lang +'</td><td>'+symbol+'</td><td>'+code+'</td><td>'+hex+'</td></tr>')
-			}
-
-		});
-
-		function getLang(code) {
-			if ((code >= 0x0041 && code <= 0x005A) || (code >= 0x0061 && code <= 0x007A)) {
-				return 'eng';
-			} if ( code >= 0x0400 && code <= 0x045F ) {
-				return 'rus';
-			} else {
-				return 'other';
-			}
-		}
-
-	</script>
-
-	<script>
-
-	/**
-	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-	var disqus_config = function () {
-	this.page.url = "https://webdevlessons.github.io/checkstring/";  // Replace PAGE_URL with your page's canonical URL variable
-	// this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-	};
 	
-	(function() { // DON'T EDIT BELOW THIS LINE
-	var d = document, s = d.createElement('script');
-	s.src = 'https://checkstring.disqus.com/embed.js';
-	s.setAttribute('data-timestamp', +new Date());
-	(d.head || d.body).appendChild(s);
-	})();
-	</script>
-	<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter46545576 = new Ya.Metrika({ id:46545576, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/46545576" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="common.js"></script>
+
+	<script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter46545576 = new Ya.Metrika({ id:46545576, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/46545576" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /
                             
 </body>
 </html>
