@@ -1,9 +1,15 @@
 body {
-	font-size: 16px;
+    font-size: 16px;
 }
+
 .comments {
-	margin-top: 40px;
+    margin-top: 40px;
 }
+
 .input-group {
-	margin: 20px 0; 
+    margin: 20px 0;
+}
+
+.badge {
+    border-radius: 0;
 }
