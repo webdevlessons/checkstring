@@ -1,16 +1,13 @@
 var kaptcha = document.getElementById('kaptcha'),
 	button = document.getElementById('btn'),
-	obj = {};
-
-var table = $('#result');
+	table = $('#result');
 
 button.addEventListener('click', function() {
-
+	// Clean tbody
 	table.html('');
 
+	// Input value
 	var val = kaptcha.value;
-
-	
 
 	for (var i = 0; i < val.length; i++) {
 		var symbol = val[i],
@@ -18,11 +15,12 @@ button.addEventListener('click', function() {
 			hex = Number(code).toString(16),
 			lang  = getLang(code);
 
-			table.append('<tr><td>'+ lang +'</td><td>'+symbol+'</td><td>'+code+'</td><td>'+hex+'</td></tr>')
+			table.append('<tr><td>'+ lang +'</td><td>'+ symbol +'</td><td>'+ code +'</td><td>'+ hex +'</td></tr>');
 	}
 
 });
 
+// Lang filter
 function getLang(code) {
 	if ((code >= 0x0041 && code <= 0x005A) || (code >= 0x0061 && code <= 0x007A)) {
 		return 'eng';
