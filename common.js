@@ -35,7 +35,7 @@ $(function () {
                 code = symbol.charCodeAt(0),
                 lang = getLang(code);
 
-            tableBody.append('<tr class="' + LANG_CLASSES[lang] + '"><td>' + lang + '</td><td>' + symbol + '</td><td>' + '<span class="badge">ALT</span> + ' + code + '</td></tr>')
+            tableBody.append('<tr class="' + LANG_CLASSES[lang] + '"><td>' + symbol + '</td><td>' + lang + '</td><td>' + '<span class="badge">ALT</span> + ' + code + '</td></tr>')
         }
     }
 
