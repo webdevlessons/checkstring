@@ -11,7 +11,7 @@ button.addEventListener('click', function() {
 
 	for (var i = 0; i < val.length; i++) {
 		var symbol = val[i],
-			code = symbol.charCodeAt(0),
+			code = prefInt(symbol.charCodeAt(0), 4),
 			hex = Number(code).toString(16),
 			lang  = getLang(code);
 
@@ -31,6 +31,13 @@ function getLang(code) {
 	}
 }
 
+function prefInt(number, len) {
+	var number = number + "";
+     if (number.length < len)
+     {
+        return (Array(len).join('0') + number).slice(-len); 
+     }
+}
 
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
