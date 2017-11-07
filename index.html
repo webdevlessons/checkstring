@@ -1,70 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<title>Check Unicode</title>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Проверка смс-кодов</title>
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="page-header">
-					<h1>Проверка смс-кодов <small>на "подставные" символы</small></h1>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-6 col-md-push-6">
-				<blockquote style="margin-top: 20px;">
-					<p>Есть небольшая просьба к вам. Скидывайте пожалуйста ссылки на страховщиков, которые блокируют поля, в комментарии тут на сайте, либо в под <a href="https://pikabu.ru/story/borba_s_kaptchey_eosago_5465105#comments">постом на пикабу</a></p>
-				</blockquote>
-			</div>
-			<div class="col-md-6 col-md-pull-6">
-				<div class="input-group">
-					<input id="kaptcha" class="form-control" type="text" placeholder="Вставьте в это поле капчу">
-					<span class="input-group-btn">
+<div class="container pull-center">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Проверка смс-кодов
+                <small>на "подставные" символы</small>
+            </h1>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <input id="kaptcha" class="form-control" type="text" placeholder="Вставьте в это поле капчу">
+                <span class="input-group-btn">
 						<button id="btn" class="btn btn-default">Проверить</button>
-					</span>
-				</div>
-				<p class="lead">Если вам встретился символ отсутствующий на клавиатуре, то вы можете через зажатый <mark>alt</mark> набрать <mark>Юникод номер</mark>(набирать нужно на num pud), который находится в 3 столбце.</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="table-responsive">
-					<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-								<td>Язык</td>
-								<td>Символ</td>
-								<td>Юникод</td>
-								<td>HEX</td>
-							</tr>
-						</thead>
-						<tbody id="result"></tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div id="disqus_thread" class="comments"></div>
-			</div>
-		</div>
-	</div>
-	
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="common.js"></script>
+				</span>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-responsive table-striped table-hover" style="display: none" id="result">
+                    <thead>
+                    <tr>
+                        <td>Символ</td>
+                        <td>Алфавит</td>
+                        <td>Юникод</td>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-	<script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter46545576 = new Ya.Metrika({ id:46545576, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/46545576" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /
-                            
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="common.js"></script>
+
 </body>
 </html>
