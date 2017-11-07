@@ -33,10 +33,12 @@ function getLang(code) {
 
 function prefInt(number, len) {
 	var number = number + "";
-     if (number.length < len)
-     {
-        return (Array(len).join('0') + number).slice(-len); 
-     }
+
+	if (number.length < len)
+	{
+		return (Array(len).join('0') + number).slice(-len); 
+	} 
+		return number;
 }
 
 /**
